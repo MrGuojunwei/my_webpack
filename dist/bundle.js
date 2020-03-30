@@ -23,6 +23,8 @@
     (function (module, exports, __webpack_require__) {
         eval(`const str = __webpack_require__("./src\\a.js");
 
+__webpack_require__("./src\\c.less");
+
 console.log(str);`);
     }),
     
@@ -36,6 +38,13 @@ module.exports = 'a' + b;`);
     "./src\base\b.js":
     (function (module, exports, __webpack_require__) {
         eval(`module.exports = 'b';`);
+    }),
+    
+    "./src\c.less":
+    (function (module, exports, __webpack_require__) {
+        eval(`let style = document.createElement('style');
+style.innerHTML = "body {\\n  background-color: red;\\n}\\n";
+document.body.appendChild(style);`);
     }),
     
   });
