@@ -15,6 +15,7 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
+    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -23,6 +24,19 @@ module.exports = {
                     path.resolve(__dirname, 'loaders/style-loader'),
                     path.resolve(__dirname, 'loaders/less-loader')
                 ]
+            },
+            {
+                test: /\.js$/,
+                use: {
+                    loader: path.resolve(__dirname, 'loaders/babel-loader?'),
+                    // options: {
+                    //     presets: [
+                    //         'env',
+                    //         'react'
+                    //     ]
+                    // }
+                }
+                
             }
         ]
     },
