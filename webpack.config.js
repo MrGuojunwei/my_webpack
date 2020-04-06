@@ -16,6 +16,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     devtool: 'source-map',
+    watch: true,
     module: {
         rules: [
             {
@@ -27,16 +28,34 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                use: {
-                    loader: path.resolve(__dirname, 'loaders/babel-loader?'),
-                    // options: {
-                    //     presets: [
-                    //         'env',
-                    //         'react'
-                    //     ]
-                    // }
-                }
-                
+                use: [
+                    {
+                        loader: path.resolve(__dirname, 'loaders/banner-loader'),
+                        options: {
+                            text: 'guojunwei',
+                            template: path.resolve(__dirname, 'banner.js')
+                        }
+                    },
+                    {
+                        loader: path.resolve(__dirname, 'loaders/babel-loader?'),
+                        options: {
+                            presets: [
+                                '@babel/preset-env',
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.jpg$/,
+                use: [
+                    {
+                        loader: path.resolve(__dirname, 'loaders/url-loader'),
+                        options: {
+                            limit: 1024 * 8
+                        }
+                    }
+                ]
             }
         ]
     },

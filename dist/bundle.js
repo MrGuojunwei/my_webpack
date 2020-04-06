@@ -86,45 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/a.js":
-/*!******************!*\
-  !*** ./src/a.js ***!
-  \******************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-let b = __webpack_require__(/*! ./base/b */ "./src/base/b.js");
-
-module.exports = 'a' + b;
-
-/***/ }),
-
-/***/ "./src/base/b.js":
-/*!***********************!*\
-  !*** ./src/base/b.js ***!
-  \***********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = 'b';
-
-/***/ }),
-
-/***/ "./src/c.less":
-/*!********************!*\
-  !*** ./src/c.less ***!
-  \********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-    let style = document.createElement('style');
-    style.innerHTML = "body {\\n  background-color: red;\\n}\\n";
-    document.body.appendChild(style)
-  
-
-/***/ }),
-
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -132,11 +93,31 @@ module.exports = 'b';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-const str = __webpack_require__(/*! ./a */ "./src/a.js");
+"use strict";
+/*郭军伟*/
 
-__webpack_require__(/*! ./c.less */ "./src/c.less");
+var _timg = _interopRequireDefault(__webpack_require__(/*! ./timg.jpg */ "./src/timg.jpg"));
 
-console.log(str);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+// const str = require('./a');
+// require('./c.less');
+// console.log(str);
+console.log(_timg["default"]);
+var img = document.createElement('img');
+img.src = _timg["default"];
+document.body.append(img);
+
+/***/ }),
+
+/***/ "./src/timg.jpg":
+/*!**********************!*\
+  !*** ./src/timg.jpg ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "../dist/5727407d_timg.jpg"
 
 /***/ })
 

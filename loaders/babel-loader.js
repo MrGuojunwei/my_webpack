@@ -5,22 +5,16 @@ const fs = require('fs');
 
 function loader(source, map, meta) {
     let cb = this.async();
-    // 拿到options
-    let options;
-    if (typeof this.query === 'string') {
-        options = loaderUtils.parseQuery(this.query);
-    } else {
-        options = loaderUtils.getOptions(this);
-    }
-
-    console.log(options);
-
+    // 拿到loader的options
+    let options = loaderUtils.getOptions(this);
+    
     babel.transform(source, {
         ...options,
-        filename: path.basename(this.resourcePath)
+        sourceMap: true,
+        filename: path.basename(this.resource)
     }, function (error, result) {
-        // console.log();
-        cb(error, result.code);
+        let { code, map, ast } = result;
+        cb(error, code, map);
     })
 }
 
