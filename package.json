@@ -28,7 +28,7 @@
     "babylon": "^6.18.0",
     "ejs": "^3.0.1",
     "less": "^3.11.1",
-    "loader-utils": "^2.0.0",
+    "loader-utils": "^2.0.3",
     "mime": "^2.4.4",
     "schema-utils": "^2.6.5",
     "tapable": "^1.1.3",
